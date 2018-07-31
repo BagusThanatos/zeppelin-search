@@ -12,7 +12,7 @@ def containsPublicSetterGetter(filename):
 				detected = False
 				continue
 			if detected and ((tokens[0].startswith("this.") and tokens[1] == '=') or tokens[0] == 'return'):
-				print(line)
+				#print(line)
 				return True
 			else:
 				detected = False
@@ -22,7 +22,7 @@ def containsPublicSetterGetter(filename):
 					detected = True
 					continue
 				if tokens[2].startswith('get'):
-					print(line)
+					#print(line)
 					detected = True
 	return False		
 			
@@ -49,7 +49,7 @@ if __name__ == "__main__":
 			if 'java' in filename:
 				totalfiles+=1
 				if  containsPublicSetterGetter(os.path.join(dirname, filename)):
-					#print(filename)
+					print(os.path.join(dirname, filename))
 					count+=1
 	time = datetime.datetime.now() - start
 	print("Time spent: %s", str(time))
